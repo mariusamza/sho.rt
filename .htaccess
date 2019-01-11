@@ -1,0 +1,8 @@
+
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+RewriteRule ^([a-zA-Z0-9]+)$ index.php?redirect=$1
+
+RewriteRule ^([a-zA-Z0-9]+[+])$ index.php?redirect=$1&stats
