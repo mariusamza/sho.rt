@@ -1,0 +1,5 @@
+<VirtualHost *:80>
+	DocumentRoot "C:\wamp64\www\sho.rt"
+	ServerName sho.rt
+	ServerAlias www.sho.rt
+</VirtualHost>
