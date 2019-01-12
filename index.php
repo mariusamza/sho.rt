@@ -19,6 +19,24 @@ include('redirect.php');
   <body>
 
 
+  <div class="container">
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+        <?php // cand ne-am logat username-ul ?>
+      </div>
+      <div class="col-4">
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="btn btn-sm btn-outline-secondary" href="login.php">LogIn</a> &nbsp;
+        <a class="btn btn-sm btn-outline-secondary" href="signup.php">SignUp</a>
+      </div>
+    </div>
+  </header>
+  </div>
+
+
+
     <div class="container">
         <div class="row">
             <div class="col-sm">
