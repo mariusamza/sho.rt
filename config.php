@@ -2,6 +2,10 @@
 
 session_start();
 
+if(!isset($_SESSION['badlogins'])) {
+    $_SESSION['badlogins'] = 0;
+}
+
 $server = "localhost";  // 127.0.0.1   ::1
 $username = "root";
 $password = "";

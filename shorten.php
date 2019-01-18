@@ -22,7 +22,14 @@ for($i = 0; $i <= 5; $i++ ) {
     $short_url .= $characters[$nr_random];
 }
 
-$url_insert = "insert into short_url(short_url, long_url) values('$short_url','$long_url')";
+if(isset($_SESSION['login'])) {
+    $uid = $_SESSION['login'];
+} else {
+    $uid = 0;
+}
+
+
+$url_insert = "insert into short_url(short_url, long_url, uid) values('$short_url','$long_url','$uid')";
 
 echo $url_insert;
 

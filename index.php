@@ -24,6 +24,16 @@ include('redirect.php');
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
         <?php // cand ne-am logat username-ul ?>
+        <?php if(isset($_SESSION['login'])) { 
+
+            $uid = $_SESSION['login'];
+            $select_user_details = "select * from users where id=$uid";
+            $result = $conn->query($select_user_details);
+            $userData = $result->fetch_assoc();
+
+            echo $userData['email'];
+        } 
+        ?>
       </div>
       <div class="col-4">
       </div>
@@ -44,7 +54,6 @@ include('redirect.php');
     </div>
   </header>
   </div>
-
 
 
     <div class="container">
@@ -90,48 +99,11 @@ include('redirect.php');
     } /* end isset $rex_views */
 
 
-    /* ########LATEST URLs########### */
-    $get_views = "select * from short_url order by id DESC limit 5";
-    $rez_get_views = $conn->query($get_views);
-
-
-    echo '<table class="table table-striped">';
-    echo '<thead class="thead-dark"><tr><th scope="col">Latest 5 URLs</th></tr></thead>';
-    
-    while($row = $rez_get_views->fetch_assoc()) {
-        $short_url = $row['short_url'];
-        $long_url = $row['long_url'];
-
-        echo "<tr>";
-        echo "<td><b>Short URL:</b> $short_url<br> <b>Long URL:</b> $long_url</td>";
-        echo "</tr>";
+    if(isset($_SESSION['login'])) {
+        include('show_logged_in_urls.php');
+    } else {
+        include('show_urls.php');
     }
-    
-    echo '</table>';
-    /* ################### */
-
-
-    /* #########VIRAL URLs########## */
-    $get_views = "select * from short_url order by views DESC limit 5";
-    $rez_get_views = $conn->query($get_views);
-
-
-    echo '<table class="table table-striped">';
-    echo '<thead class="thead-dark"><tr><th scope="col">Top Viral URLs</th><th></th></tr></thead>';
-    
-    while($row = $rez_get_views->fetch_assoc()) {
-        $short_url = $row['short_url'];
-        $long_url = $row['long_url'];
-        $views = $row['views'];
-
-        echo "<tr>";
-        echo "<td><b>Views: </b>$views<br> </td>";
-        echo "<td><b>Short URL: </b> $short_url <br> <b>Long URL:</b> $long_url</td>";
-        echo "</tr>";
-    }
-    
-    echo '</table>';
-    /* ################### */
 
 ?>
 

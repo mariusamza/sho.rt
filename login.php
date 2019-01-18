@@ -15,15 +15,24 @@ if(isset($_POST['login'])) {
     
     $result = $conn->query($verify);
 
-    var_dump($result);
-
     if($result->num_rows == 1) {
 
-      $_SESSION['login']="true";
+      $result_array = $result->fetch_assoc();
+
+      $_SESSION['login'] = $result_array['id'];
 
       header("Location: index.php");
+    } else {
+
+      $_SESSION['badlogins']++; 
+
+      if($_SESSION['badlogins'] >= 5) {
+        exit();
+      }
     }
 }
+
+echo $_SESSION['badlogins'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,7 +45,7 @@ if(isset($_POST['login'])) {
     <title>Signin Template · Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-<<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 
     <style>
