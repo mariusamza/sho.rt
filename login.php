@@ -18,7 +18,10 @@ if(isset($_POST['login'])) {
     var_dump($result);
 
     if($result->num_rows == 1) {
-        echo '<h1>LOGGED IN!!!</h1>';
+
+      $_SESSION['login']="true";
+
+      header("Location: index.php");
     }
 }
 ?>

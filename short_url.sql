@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 11, 2019 at 03:24 PM
+-- Generation Time: Jan 18, 2019 at 04:11 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -43,12 +43,33 @@ CREATE TABLE IF NOT EXISTS `short_url` (
 
 INSERT INTO `short_url` (`id`, `short_url`, `long_url`, `views`) VALUES
 (11, 'tFqZ7l', 'https://www.techonthenet.com/mysql/order_by.php', 0),
-(10, 'aiVg96', 'https://getbootstrap.com/docs/4.0/content/tables/', 0),
+(10, 'aiVg96', 'https://getbootstrap.com/docs/4.0/content/tables/', 3),
 (9, 'KQQ1iz', 'https://youtube.com', 6),
 (8, 'UTPAtA', 'http://google.com', 0),
 (12, 'bn1YEC', 'https://calendar.google.com/calendar/r?pli=1', 0),
 (13, 'fQARDG', 'https://www.google.com/search?q=dsadsadsada&rlz=1C1GCEA_enRO826RO826&oq=dsadsadsada&aqs=chrome..69i57j69i60l4.717j0j1&sourceid=chrome&ie=UTF-8', 0),
 (14, 'PAXURS', 'https://www.google.com/search?q=dsadsadsada&rlz=1C1GCEA_enRO826RO826&oq=dsadsadsada&aqs=chrome..69i57j69i60l4.717j0j1&sourceid=chrome&ie=UTF-8', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
+  `password` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`) VALUES
+(8, 'mariusamza@gmail.com ', '5fba6948bc33762bfe6748bb19e233f36369cf9bfcad97bcad8bf081e12efbefa2dbdbb53c4183bde996192d0a01ebcaf543af098dd31a50bf99b8a92028b40d');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

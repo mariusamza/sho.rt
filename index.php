@@ -28,8 +28,18 @@ include('redirect.php');
       <div class="col-4">
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
+
+      <?php if(isset($_SESSION['login'])) { ?>
+
+        <a class="btn btn-sm btn-outline-secondary" href="logout.php">LogOut</a> &nbsp;
+     
+      <?php } else { ?>
+       
         <a class="btn btn-sm btn-outline-secondary" href="login.php">LogIn</a> &nbsp;
         <a class="btn btn-sm btn-outline-secondary" href="signup.php">SignUp</a>
+     
+      <?php } ?>
+
       </div>
     </div>
   </header>
