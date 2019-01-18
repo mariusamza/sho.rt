@@ -1,0 +1,13 @@
+Concurs Coca-Cola
+- lumea se inscrie cu nume + telefon + cod
+
+Administrator:
+- panou unde vede toate persoanele inscrise cu cod valid
+- functie de generat coduri (1000 coduri unice) (pagina de afisat codurile)
+- aplicatia trebuie sa compare codurile generate cu inscrierile
+- functie alege un castigator random
++ Bonus: alege si locul 1,2,3,mentiune (buton separat de ales loc 1,2,3 ...) si sa le afiseze in front-end, la inscriere ...
++ Bonus: nu te poti inregistra de mai multe ori
+
+
+
